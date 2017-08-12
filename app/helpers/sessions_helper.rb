@@ -36,7 +36,7 @@ module SessionsHelper
       @current_user ||= User.find_by(id: session[:user_id])
     elsif (user_id = cookies.signed[:user_id])  # sessionにないのであれば、cookieから取得する
       user = User.find_by(id: user_id)
-      if user && user.auhenticated?(cookies[:remember_token])
+      if user && user.auhenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user
       end
