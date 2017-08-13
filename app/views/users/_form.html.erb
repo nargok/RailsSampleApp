@@ -1,7 +1,7 @@
 <!--form_forを使用すると、@user.new_record?を実行する-->
 <!--trueであればPost、falseであればPatchリクエストを実行する-->
 <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages', object: @user %>
+    <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :name%>
     <%= f.text_field :name, class: "form-control" %>
